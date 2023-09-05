@@ -1,2 +1,2 @@
 # streaming-asr
-Streaming ASR using Whisper
+Streaming ASR using Whisper and CTranslate2
