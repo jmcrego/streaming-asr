@@ -11,6 +11,7 @@ if __name__ == '__main__':
     parser.add_argument('--device', type=str, help='Device: cpu, cuda, auto', default='auto')
     parser.add_argument('--compute_type', type=str, help='Compute type', default='int8')
     parser.add_argument('--port', type=int, help='Port used in local server', default=5000)
+    parser.add_argument('--host', type=int, help='Host used (use 0.0.0.0 to allow distant access, otherwise use 127.0.0.1)', default='0.0.0.0')
     args = parser.parse_args()
 
     logging.basicConfig(format='[%(asctime)s.%(msecs)03d] %(levelname)s %(message)s', datefmt='%Y-%m-%d_%H:%M:%S', level=getattr(logging, 'INFO', None), filename=None)
@@ -24,7 +25,7 @@ if __name__ == '__main__':
         return jsonify(response)
 
     if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=args.port) # (use 0.0.0.0 to allow distant access)
+        app.run(host=args.host, port=args.port)
 
 
 
