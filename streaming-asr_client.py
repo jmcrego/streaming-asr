@@ -19,10 +19,10 @@ if __name__ == '__main__':
     group_client.add_argument('--sleep', type=int, help='ASR requests performed every this amount of time (ms)', default=500)
     group_client.add_argument('--padding', type=int, help='Speech intervals are padded by this amount of time (ms) each side', default=200)
 
-    group_client_endsilence = parser.add_argument_group("  ===== [endsilence] transcripts when long silences detected =====")
+    group_client_endsilence = parser.add_argument_group("  ===== Create a [endsilence] transcript when long silences detected =====")
     group_client_endsilence.add_argument('--silence', type=int, help='Minimum silence (ms) to consider a transcript [endsilence]', default=500)
 
-    group_client_endchars = parser.add_argument_group("  ===== [endchars] transcripts when a token of current hypothesis is ended by (punctuation) chars =====")
+    group_client_endchars = parser.add_argument_group("  ===== Create a [endchars] transcript when a token of current hypothesis is ended by (punctuation) chars =====")
     group_client_endchars.add_argument('--endchars', type=str, help='Recognised tokens ended by any of these chars produce a transcript [endchars]', default=',.!?؟،')
     group_client_endchars.add_argument('--skip_ini', type=int, help='Skip these initial tokens when searching [endchars] transcript', default=3)
     group_client_endchars.add_argument('--skip_end', type=int, help='Skip these ending tokens when searching [endchars] transcript', default=3)
