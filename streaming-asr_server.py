@@ -13,7 +13,6 @@ if __name__ == '__main__':
     parser.add_argument('--port', type=int, help='Port used in local server', default=5000)
     parser.add_argument('--host', type=int, help='Host used (use 0.0.0.0 to allow distant access, otherwise use 127.0.0.1)', default='0.0.0.0')
     args = parser.parse_args()
-
     logging.basicConfig(format='[%(asctime)s.%(msecs)03d] %(levelname)s %(message)s', datefmt='%Y-%m-%d_%H:%M:%S', level=getattr(logging, 'INFO', None), filename=None)
     asr = StreamASR(args.model_size, args.device, args.compute_type)
 
@@ -21,7 +20,14 @@ if __name__ == '__main__':
     @app.route('/transcribe', methods=['POST'])
     def send_data():
         content = request.json  # Assuming the client sends JSON data
-        response = { 'transcript': asr( content['audio'], content['language'], content['history'], int(content['beam_size']), content['task']) ) }
+        response = { 
+            'transcript': asr( 
+                content['audio'], 
+                content['language'], 
+                content['history'] , 
+                int(content['beam_size']), 
+                content['task'])
+            }
         return jsonify(response)
 
     if __name__ == '__main__':
