@@ -1,7 +1,7 @@
 import sys
 import logging
 import argparse
-from StreamMic import StreamMic
+from python.StreamMic import StreamMic
 
 if __name__ == '__main__':
 
