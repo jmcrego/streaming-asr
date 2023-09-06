@@ -28,7 +28,7 @@ if __name__ == '__main__':
     group_client_endchars.add_argument('--skip_end', type=int, help='Skip these ending tokens when searching [endchars] transcript', default=3)
 
     group_other = parser.add_argument_group("Other")
-    group_other.add_argument('--odir', type=str, help='Save transcripts in given directory', default=None)
+    group_other.add_argument('--odir', type=str, help='Save transcripts in directory', default=None)
     group_other.add_argument('--debug', action='store_true', help='Debug mode')
     args = parser.parse_args()
     logging.basicConfig(
