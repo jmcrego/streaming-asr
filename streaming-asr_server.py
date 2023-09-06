@@ -2,7 +2,7 @@ import logging
 import argparse
 from faster_whisper import WhisperModel
 from flask import Flask, request, jsonify
-from StreamASR import StreamASR
+from python.StreamASR import StreamASR
 
 if __name__ == '__main__':
 
