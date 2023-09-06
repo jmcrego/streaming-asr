@@ -17,7 +17,7 @@ class StreamASR():
         '''
         data = np.asarray(audio, dtype=np.float32)
         tic = time.time()
-        segments, info = self.model.transcribe(data, language=language, task=task, beam_size=beam_size, vad_filter=True, word_timestamps=True, initial_prompt=history if history is not None else None)
+        segments, info = self.model.transcribe(data, language=language, task=task, beam_size=beam_size, vad_filter=True, word_timestamps=True, initial_prompt=history)
         logging.info('transcription of {} floats took {:.2f} seconds'.format(len(audio), time.time()-tic))
         hyp = []
         for segment in segments:
