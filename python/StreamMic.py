@@ -7,9 +7,9 @@ import requests
 import numpy as np
 import sounddevice as sd
 from collections import defaultdict
-from Utils import save
-from Hyp import Hyp
-from VAD import VAD
+from python.Utils import save
+from python.Hyp import Hyp
+from python.VAD import VAD
 
 class StreamMic():
 
